@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://br5jasmepe5xh"]
+[gd_scene load_steps=5 format=3 uid="uid://br5jasmepe5xh"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_fucb6"]
+[ext_resource type="PackedScene" uid="uid://dysou0lsbavc1" path="res://assets/scenes/poc/demo_A.tscn" id="2_1hgjd"]
+[ext_resource type="Shader" path="res://assets/shaders/canvas/line_art.gdshader" id="3_6ort6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bqn2y"]
+shader = ExtResource("3_6ort6")
+shader_parameter/strength = 0.01
+shader_parameter/color = null
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -18,10 +25,21 @@ offset_bottom = 40.0
 
 [node name="View3D" type="SubViewport" parent="ViewportContainer"]
 handle_input_locally = false
+vrs_mode = 2
 audio_listener_enable_2d = true
 audio_listener_enable_3d = true
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
+
+[node name="DemoA" parent="ViewportContainer/View3D" instance=ExtResource("2_1hgjd")]
+
+[node name="Filter" type="ColorRect" parent="ViewportContainer/View3D"]
+material = SubResource("ShaderMaterial_bqn2y")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="View2D" type="SubViewport" parent="ViewportContainer"]
 disable_3d = true

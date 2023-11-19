@@ -1,4 +1,4 @@
-# [Graphic PoC's] - 0.0.1
+# Graphic PoC's - 0.0.1
 
 ## Software Kit
 
